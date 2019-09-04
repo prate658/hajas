@@ -1,0 +1,55 @@
+name:                hajas
+version:             0.1
+github:              "prate658/hajas"
+license:             BSD3
+author:              "prate658"
+maintainer:          "prate658@protonmail.com"
+copyright:           "prate658"
+
+extra-source-files:
+- README.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/prate658/hajas#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+- language-ecmascript
+- uniplate
+- mtl
+- containers
+- split
+
+library:
+  source-dirs: src
+
+executables:
+  hajas:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - hajas
+    - optparse-applicative
+
+tests:
+  hajas-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - hajas
+    - tasty
+    - tasty-hunit
